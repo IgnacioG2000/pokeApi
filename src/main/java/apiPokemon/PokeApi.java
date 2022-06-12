@@ -1,3 +1,5 @@
+package apiPokemon;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.cxf.jaxrs.client.WebClient;
@@ -10,13 +12,13 @@ public class PokeApi {
   public String obtenerToken(String mail) throws Exception {
     WebClient clientUsers = WebClient.create("https://pokeapi.co/api/v2/pokemon/ditto");
 
-    //request lo que pedimos
+
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     //response lo que nos devuelve
     Response response = clientUsers
-        .header("Content-Type", "application/json")
+        .header("Content-apiPokemon.Type", "application/json")
         .get();
 
     int status = response.getStatus();
