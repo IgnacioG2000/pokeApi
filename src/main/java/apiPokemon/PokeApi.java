@@ -10,8 +10,7 @@ public class PokeApi {
 
 
   public String obtenerToken(String mail) throws Exception {
-    WebClient clientUsers = WebClient.create("https://pokeapi.co/api/v2/pokemon/ditto");
-
+    WebClient clientUsers = WebClient.create("https://pokeapi.co/api/v2/pokemon/");
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -26,11 +25,12 @@ public class PokeApi {
     String responseBody = response.readEntity(String.class);
     if (status == 201) {
       System.out.println("Autent response = " + responseBody);
-      AutenticacionResponse autenticacionResponse = objectMapper.readValue(responseBody, AutenticacionResponse.class);
-      return autenticacionResponse.getToken();
+      //AutenticationResponse autenticacionResponse = objectMapper.readValue(responseBody, AutenticacionResponse.class);
+      //return autenticacionResponse.getToken();
     } else {
       System.out.println("Error response = " + responseBody);
       throw new Exception("Error en la llamada a /api/user");
     }
+    return "";
   }
 }

@@ -1,8 +1,10 @@
+import apiPokemon.Move;
+
 import java.util.Collection;
 
 public class AutenticacionResponse {
   private String url;
-  private Collection<Movimiento> movimientos;
+  private Collection<Move> movimientos;
 
 
   public String getUrl() {
@@ -13,7 +15,7 @@ public class AutenticacionResponse {
     this.url = url;
   }
 
-  public Collection<Movimiento> getMovimientos() {
-    return this.movimientos;
+  public Collection<Move> getMovimientos() {
+    return movimientos;
   }
 }
